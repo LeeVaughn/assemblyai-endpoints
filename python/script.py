@@ -17,3 +17,7 @@ headers = {
 # submit a file for transcription and print the response
 response = requests.post(endpoint, json=json, headers=headers)
 pprint(response.json())
+
+# request a single transcript and print the response
+response = requests.get(endpoint, headers=headers)
+pprint(response.json())
