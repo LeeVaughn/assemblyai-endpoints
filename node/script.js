@@ -16,4 +16,9 @@ assembly
   })
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
-  
+
+// request a single transcript
+assembly
+  .get(`/transcript/${"f5jh9ohxg-57e1-42f0-a14d-0ea1d234c7fd"}`)
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error(err));
