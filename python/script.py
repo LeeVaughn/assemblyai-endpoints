@@ -3,6 +3,20 @@ from pprint import pprint
 
 endpoint = "https://api.assemblyai.com/v2/transcript"
 
+#* submit a file for transcription and print the response
+json = {
+  "audio_url": "https://s3-us-west-2.amazonaws.com/blog.assemblyai.com/audio/8-7-2018-post/7510.mp3"
+}
+
+headers = {
+    "authorization": "b62141f4d92b43f8a0f018ae6c8e018c",
+    "content-type": "application/json"
+}
+
+response = requests.post(endpoint, json=json, headers=headers)
+pprint(response.json())
+
+#* submit a file for transcription with punctuation and casing turned off
 json = {
   "audio_url": "https://s3-us-west-2.amazonaws.com/blog.assemblyai.com/audio/8-7-2018-post/7510.mp3",
   "punctuate": False,
@@ -14,15 +28,16 @@ headers = {
     "content-type": "application/json"
 }
 
-# submit a file for transcription and print the response
 response = requests.post(endpoint, json=json, headers=headers)
+
 pprint(response.json())
 
-# request a single transcript and print the response
+#* request a single transcript and print the response
 response = requests.get(endpoint, headers=headers)
+
 pprint(response.json())
 
-# reads file and returns data
+#* reads file and returns data
 def read_file(filename, chunk_size=5242880):
     with open(filename, 'rb') as _file:
         while True:
