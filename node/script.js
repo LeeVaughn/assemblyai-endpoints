@@ -10,7 +10,7 @@ const assembly = axios.create({
   },
 });
 
-// create a new instance of axios with custom configurations to be used with most requests
+// create a new instance of axios with custom configurations to be used with uploading local files
 const assembly2 = axios.create({
   baseURL: "https://api.assemblyai.com/v2",
   headers: {
@@ -34,7 +34,7 @@ assembly
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
 
-//* read audio file then submit it for transcription
+//* read audio file then submit it to get back an audio_url
 fs.readFile("../audio/convo.MP3", (err, data) => {
   if (err) return console.error(err);
 
