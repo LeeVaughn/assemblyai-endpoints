@@ -28,6 +28,16 @@ assembly
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
 
+  //* submit a file for transcription with punctuation and casing turned off
+assembly
+  .post(`/transcript`, {
+    audio_url: "https://s3-us-west-2.amazonaws.com/blog.assemblyai.com/audio/8-7-2018-post/7510.mp3",
+    punctuate: false,
+    format_text: false
+  })
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error(err));
+
 //* request a single transcript
 assembly
   .get(`/transcript/${"wxcbxobk7-9b07-46d7-b33e-a1dd8739ce32"}`)
