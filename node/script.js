@@ -44,6 +44,12 @@ assembly
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
 
+//* delete a single transcript
+assembly
+  .delete(`/transcript/${"w2hkc43aj-7cbb-4dbf-a360-183d1ecd4ca3"}`)
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error(err));
+
 //* read a local audio file then submit it to get back an audio_url
 fs.readFile("../audio/convo.MP3", (err, data) => {
   if (err) return console.error(err);

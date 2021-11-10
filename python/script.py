@@ -33,7 +33,12 @@ response = requests.post(endpoint, json=json, headers=headers)
 pprint(response.json())
 
 #* request a single transcript and print the response
-response = requests.get(endpoint, headers=headers)
+response = requests.get(endpoint + "wnrteyqrr-8ac7-482d-a875-7126257cf842", headers=headers)
+
+pprint(response.json())
+
+#* delete single transcript and print the response
+response = requests.delete(endpoint + "/wmn5lg0no-c821-4469-86cf-aa5afe494270", headers=headers)
 
 pprint(response.json())
 
