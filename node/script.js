@@ -44,7 +44,7 @@ assembly
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
 
-//* read audio file then submit it to get back an audio_url
+//* read a local audio file then submit it to get back an audio_url
 fs.readFile("../audio/convo.MP3", (err, data) => {
   if (err) return console.error(err);
 
