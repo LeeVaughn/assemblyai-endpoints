@@ -37,6 +37,11 @@ response = requests.get(endpoint + "wnrteyqrr-8ac7-482d-a875-7126257cf842", head
 
 pprint(response.json())
 
+#* request all transcripts and print the response, which includes the 200 most recent
+response = requests.get(endpoint + "?limit=200&status=completed", headers=headers)
+
+pprint(response.json())
+
 #* delete single transcript and print the response
 response = requests.delete(endpoint + "/wmn5lg0no-c821-4469-86cf-aa5afe494270", headers=headers)
 

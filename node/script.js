@@ -44,6 +44,12 @@ assembly
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
 
+//* request all transcripts, limited to the last 200
+assembly
+  .get(`/transcript?limit=200&status=completed`)
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error(err));
+
 //* delete a single transcript
 assembly
   .delete(`/transcript/${"w2hkc43aj-7cbb-4dbf-a360-183d1ecd4ca3"}`)
