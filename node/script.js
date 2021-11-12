@@ -28,12 +28,21 @@ assembly
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
 
-  //* submit a file for transcription with punctuation and casing turned off
+//* submit a file for transcription with punctuation and casing turned off
 assembly
   .post(`/transcript`, {
     audio_url: "https://s3-us-west-2.amazonaws.com/blog.assemblyai.com/audio/8-7-2018-post/7510.mp3",
     punctuate: false,
     format_text: false
+  })
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error(err));
+
+//* submit a file for transcription with speaker labels
+assembly
+  .post(`/transcript`, {
+    audio_url: "https://cdn.assemblyai.com/upload/c8b5b441-1832-4063-9997-c1e05d1e7a20",
+    speaker_labels: true
   })
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
