@@ -47,6 +47,17 @@ assembly
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
 
+//* submit a file for transcription with auto chapters, sentiment, and disfluencies
+assembly
+  .post(`/transcript`, {
+    audio_url: "https://github.com/LeeVaughn/assemblyai-endpoints/blob/master/audio/convo.MP3?raw=true",
+    auto_chapters: true,
+    sentiment_analysis: true,
+    disfluencies: true
+  })
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error(err));
+
 //* request a single transcript
 assembly
   .get(`/transcript/${"wxcbxobk7-9b07-46d7-b33e-a1dd8739ce32"}`)
