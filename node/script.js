@@ -1,11 +1,12 @@
 const axios = require("axios");
+const auth_key = require("./config");
 const fs = require("fs");
 
 // create a new instance of axios with custom configurations to be used with most requests
 const assembly = axios.create({
   baseURL: "https://api.assemblyai.com/v2",
   headers: {
-    authorization: "b62141f4d92b43f8a0f018ae6c8e018c",
+    authorization: auth_key,
     "content-type": "application/json",
   },
 });
@@ -14,7 +15,7 @@ const assembly = axios.create({
 const assembly2 = axios.create({
   baseURL: "https://api.assemblyai.com/v2",
   headers: {
-      authorization: "b62141f4d92b43f8a0f018ae6c8e018c",
+      authorization: auth_key,
       "content-type": "application/json",
       "transfer-encoding": "chunked",
   },
@@ -24,6 +25,15 @@ const assembly2 = axios.create({
 assembly
   .post(`/transcript`, {
     audio_url: "https://cdn.assemblyai.com/upload/b7ca7b27-e5c4-46cd-b16f-11a78c5d249a"
+  })
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error(err));
+
+//* submit a dual_channel file for transcription
+assembly
+  .post(`/transcript`, {
+    audio_url: "https://cdn.assemblyai.com/upload/c51e814e-adfb-4810-b86d-fa0fbe88c533",
+    "dual_channel": true
   })
   .then((res) => console.log(res.data))
   .catch((err) => console.error(err));
